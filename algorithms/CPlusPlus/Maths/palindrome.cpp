@@ -7,7 +7,22 @@ int main()						//Main function
 	string num_str = "";		//define variable
 	cin >> num_str;				//taking input from user
 	string new_str = "";		//define a new variable
-
+	
+	//make num_str all lower case and remove all punctuation and spaces
+	string test_str = "";		//define a new variable for the cleaned input
+	for(int i = 0; i < num_str.size(); i++){
+		string temp = num_str[i];
+		if(ispunct(temp) || isspace(temp)){
+			continue;
+		}
+		else if(isalpha(temp)){
+			test_str += tolower(temp);
+		}
+		else{
+			test_str += temp;
+		}
+		cout<< test_str;
+	}
 	for(int x = (num_str.size()-1); x >= 0; x--){		//for loop started
 		new_str += num_str[x];							//assigning the value input by user to new variable in reverse order
 	}													//for loop end
@@ -19,3 +34,4 @@ int main()						//Main function
 
 //complexity of the program is O(n)
 //test cases:- 101,pop,asdfgfdsa,123454321,obobo,nancyiycnan etc.
+//addtional edge cases: "Sit on a potato pan, Otis"
